@@ -1,4 +1,135 @@
-.hidden1 {
-    display: none;
+* {
+  box-sizing: border-box;
+  
 }
 
+.hidden1 {
+  display: none;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #E7EAF1;
+  background-color: black;
+}
+
+#fields {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+  font-family: 'Montserrat',sans-serif;
+}
+
+p {
+  text-transform: uppercase;
+  width: 250px;
+  letter-spacing: 1px;
+  line-height: 25px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+input {
+  font-family: system-ui;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  text-transform: uppercase;
+  width: 250px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+:root {
+  --tableWidth: 420px;
+  --headerFontSize: 16px;
+  --headerFontColor: #E7EAF1;
+  --headerFontWeight: 0;
+  --headerFontBGColor: hsl(0 0% 0% / 0.5);
+  --headerTextAlign: left;
+  --bodyTextAlign: left;
+  --headerBorderColor: #E7EAF1;
+  --headerBCVar: 0px;
+  --bodyFontSize: 14px;
+  --evenRowsColor: #E7EAF1;
+  --oddRowsColor: #E7EAF1;
+  --evenRowsBGColor: #0000001a;
+  --oddRowsBGColor: #323232;
+  --cellPaddingHVar: 15px;
+  --cellPaddingVVar: 15px;
+  --rowsBorderColor: hsl(0 0% 100%);
+  --rowsBorderWidth: 2px;
+  --text-color: #E7EAF1;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  width: 100%;
+  background: #323232;
+  width: var(--tableWidth);
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+td {
+  font-size: var(--bodyFontSize);
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+  min-height: 100px;
+  text-align: var(--bodyTextAlign);
+  border: none;
+  
+}
+
+th,
+td
+{
+  padding: 20px;
+}
+
+
+
+tbody tr:nth-child(even) {
+  color: var(--evenRowsColor);
+  background-color: var(--evenRowsBGColor);
+}
+
+tbody tr:nth-child(odd) {
+  color: var(--oddRowsColor);
+  background-color: var(--oddRowsBGColor);
+}
+
+thead {
+  text-align: var(--headerTextAlign);
+  text-transform: uppercase;
+  font-size: var(--headerFontSize);
+  font-weight: var(--headerFontWeight);
+  letter-spacing: 0.002em;
+  color: var(--headerFontColor) !important;
+  background-color: var(--headerFontBGColor);
+  border: var(--headerBCVar) solid var(--headerBorderColor);
+  font-family: system-ui;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+  text-transform: uppercase;
+  border: 2px solid #E7EAF1;
+  cursor: pointer;
+  border-radius: 50px;
+}

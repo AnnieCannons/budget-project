@@ -12,17 +12,25 @@
 <body>
 <div id="fields">
 
+<div class="messages">
+    
     <p id="intro">Lets get started with an example on budgeting!</p>
-    <button id="start">Begin</button>
+</div>
 
+<div class="inputs">
+
+<div class="starting">
+    
+    <button id="start">Begin</button>
     <input type="text" placeholder="Name" id="name" class="hidden1">
     <input type="text" placeholder="Monthly Salary" id="salary" class="hidden1">
     <button id="begin" class="hidden1">Submit</button>
-    <p id="welcome"></p>
+ </div>
 
-    
+ <div class="monthlySpending">
+    <p id="welcome" class="hidden1"></p>
     <p id="monthly" class="hidden1">Please fill in your monthly expenses</p>
-
+    <p id="warning" class="hidden1"></p>
     <input type="text" id="food" placeholder="food" class="hidden1">
     <p class="food"></p>
     <input type="text" id="housing" placeholder="housing" class="hidden1">
@@ -35,22 +43,25 @@
     <p class="transportation"></p>
     <input type="text" id="essentials" placeholder="essentials" class="hidden1">
     <p class="essentials"></p>
-
     <button class="hidden1" id="submitNeed">Submit</button>
-    <p id="warning"></p>
+   </div>
 
 
+<div class="emergencyField">
     <p class="conclusion hidden1" id="conclusion">It's important to put money towards your emergency fund. This will come from your savings portion. Please fill in the amount you would like sent to your emergency fund.
     </p>
+    <p class="hidden1" id="finalMessage"></p>
     <input type="text" class="hidden1" placeholder="emergency fund" id="emergencyInput">
     <p class="emergencyValue"></p>
-    <button id="emergency" class="hidden1">Emergency Fund</button> 
-
-
-<p class="hidden1" id="finalMessage"></p>
+    <button id="emergency" class="hidden1">Submit</button> 
+</div>
+</div>
+</div>
 </div>
 
-<div class="budgetTable"></div>
+
+
+<div class="budgetTable">
     <div id="table1" class="hidden1">
         <table>
             <thead>
@@ -93,10 +104,11 @@
         </table>
     </div>
 
-<p></p>
-
+    <div class="reset">
     <button id="startOver" class="hidden1">Start Over</button>
-
+    </div>
+</div>
+</div>
 </body>
 
 </html>
