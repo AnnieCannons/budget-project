@@ -1,13 +1,17 @@
 //BEGIN BUTTON
+let buttonStart = document.getElementById("start")
+buttonStart.addEventListener("click", function startBudget() {
 
-let buttonBegin = document.getElementById("begin");
+  // Set beginning elements
+  let nameInput = document.getElementById("name");
+  let buttonBegin = document.getElementById("begin");
+  let budgetInput = document.getElementById("salary");
+  let beginning = [nameInput, budgetInput, buttonBegin]
+  for (let i = 0; i< 3; i++) {
+  beginning[i].classList.remove("hidden1")
+  }
 
-buttonBegin.addEventListener("click", function myBudget() {
-  let personValue = document.getElementById("person");
-
-  let person = "";
-
-  personValue.innerHTML = person;
+  let person = ''
 
   let needs = 0;
 
@@ -15,35 +19,41 @@ buttonBegin.addEventListener("click", function myBudget() {
 
   let wants = 0;
 
-  let nameInput = document.getElementById("name");
+  // Remove begin button
+let buttonStart = document.getElementById("start")
+buttonStart.classList.add("hidden1")
 
-  let name = nameInput.value
+// Activate submit button 
 
-  document.getElementById("person").innerHTML = `${name}'s Budget`;
+buttonBegin.addEventListener("click", function myBudget() {
 
-  let budgetInput = document.getElementById("salary");
+let name = nameInput.value
 
-  budget = Number(budgetInput.value);
+person = `${name}'s Monthly Budget`;
+  
+budget = Number(budgetInput.value);
 
-  needs = budget * 0.5;
+needs = budget * 0.5;
 
-  savings = budget * 0.2;
+savings = budget * 0.2;
 
-  wants = budget * 0.3;
+wants = budget * 0.3;
 
-  document.getElementById("needs").innerHTML = `💰${needs}`;
+document.getElementById("person").innerHTML = person
 
-  document.getElementById("savings").innerHTML = `💰${savings}`;
+document.getElementById("needs").innerHTML = `💰${needs}`;
 
-  document.getElementById("wants").innerHTML = `💰${wants}`;
+document.getElementById("savings").innerHTML = `💰${savings}`;
+
+document.getElementById("wants").innerHTML = `💰${wants}`;
+
+
+// Welcome message 5 seconds
 
   let welcome = document.getElementById("welcome").innerHTML;
-  document.getElementById(
-    "welcome"
-  ).innerHTML = `Hello ${name}! Here is your budget for this month.`;
-  setTimeout(function () {
-    document.getElementById("welcome").innerHTML = welcome;
-  }, 5000);
+  document.getElementById("welcome").innerHTML = `Hello ${name}! Here is your budget for this month.`;
+  setTimeout(function() {
+    document.getElementById("welcome").innerHTML = welcome}, 5000);
 
   // Reveal Table to display budget
   let table1 = document.getElementById("table1");
@@ -53,132 +63,116 @@ buttonBegin.addEventListener("click", function myBudget() {
   let intro = document.getElementById("intro");
   intro.classList.add("hidden1");
 
-  // Remove Begin Button
-  buttonBegin.classList.add("hidden1");
+  // Remove beginning set up 
+  for (let i = 0; i< 3; i++) {
+    beginning[i].classList.add("hidden1")
+    }
 
-   //hide input values
-  name = document.getElementById("name")
-  name.classList.add("hidden1")
+    // Set Needs Elements
+  let submitNeeds = document.getElementById("submitNeed")
+    let monthly = document.getElementById("monthly")
+    let foodInput = document.getElementById("food")
+    let housingInput = document.getElementById("housing")
+    let expensesInput = document.getElementById("bills")
+    let healthcareInput = document.getElementById("healthcare")
+    let transportationInput = document.getElementById("transportation")
+    let essentialsInput = document.getElementById("essentials")
 
-  budgetInput = document.getElementById("salary")
-  budgetInput.classList.add("hidden1")
+    // Reveal needs elements
 
-  // Reveal Needs Button
-  let needsButton = document.getElementById("input");
-  needsButton.classList.remove("hidden1");
+    let monthlySection = [foodInput, housingInput, expensesInput, healthcareInput, transportationInput, essentialsInput, monthly, submitNeeds]
+    for (let i = 0; i< 8; i++) {
+      monthlySection[i].classList.remove("hidden1")
+    }
+  
+         //Active submit Button
+    submitNeeds.addEventListener("click", function submitNeed() {
 
-  needsButton.addEventListener("click", function inputYourNeeds() {
-    let food = prompt("How much do you spend on food monthly?");
+    let food = Number(foodInput.value)
+    document.getElementsByClassName("food").innerHTML = food
 
-    food = Number(food);
+    let housing = Number(housingInput.value);
+    document.getElementsByClassName("housing").innerHTML = housing
 
-    let housing = prompt("How much do you spend on housing monthly?");
+    let expenses = Number(expensesInput.value);
+    document.getElementsByClassName("bills").innerHTML = expenses
 
-    housing = Number(housing);
+    let healthcare = Number(healthcareInput.value);
+    document.getElementsByClassName("healthcare").innerHTML = healthcare
 
-    let expenses = prompt("How much do you spend on bills and loans monthly?");
+    let transportation = Number(transportationInput.value);
+    document.getElementsByClassName("transportation").innerHTML = transportation
 
-    expenses = Number(expenses);
-
-    let healthcare = prompt("How much do you spend on healthcare, monthly?");
-
-    healthcare = Number(healthcare);
-
-    let transportation = prompt("How much do you spend on transportation monthly?");
-
-    transportation = Number(transportation);
-
-    let essentials = prompt("How much do you spend on essentials monthly?");
-
-    essentials = Number(essentials);
+    let  essentials = Number(essentialsInput.value);
+    document.getElementsByClassName("essentials").innerHTML = essentials
 
     needs = needs - (food + housing + expenses + healthcare + transportation + essentials);
 
-    // Remove Needs Button
-    needsButton.classList.add("hidden1");
-
-    // Reveal Emergency Button
-    let emergency = document.getElementById("emergency");
-    emergency.classList.remove("hidden1");
-
-    // Reveal Emergency Statement
-    let conclusion = document.getElementById("conclusion");
-
-    conclusion.classList.remove("hidden1");
-
     if (needs < 0) {
       wants = wants + needs;
-      let needsMessage = document.getElementById("warning").innerHTML;
-      document.getElementById(
-        "warning"
-      ).innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
-      setTimeout(function () {
-        document.getElementById("warning").innerHTML = needsMessage;
-      }, 5000);
 
+      let needsMessage = document.getElementById("warning").innerHTML
+      document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
+      setTimeout(function() {document.getElementById("warning").innerHTML = needsMessage }, 5000)
+    
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
       document.getElementById("savings").innerHTML = `💰${savings}`;
 
       document.getElementById("wants").innerHTML = `💰${wants}`;
+
+        //Remove needs set up 
+        for (let i = 0; i< 8; i++) {
+          monthlySection[i].classList.add("hidden1")
+        }
+    
     } else {
-      let needsMessage = document.getElementById("warning").innerHTML;
+      let needsMessage = document.getElementById("warning").innerHTML
       document.getElementById("warning").innerHTML = `You're doing great!`;
-      setTimeout(function () {
-        document.getElementById("warning").innerHTML = needsMessage;
-      }, 5000);
+      setTimeout(function() {
+        document.getElementById("warning").innerHTML = needsMessage }, 5000);
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
       document.getElementById("savings").innerHTML = `💰${savings}`;
 
       document.getElementById("wants").innerHTML = `💰${wants}`;
+
+        //Remove needs set up 
+        for (let i = 0; i< 8; i++) {
+          monthlySection[i].classList.add("hidden1")
+        }
     }
-  });
+
+
+      // Set emergency elements
+      let emergencyButton = document.getElementById("emergency")
+      let emergencyMessage = document.getElementById("conclusion")
+      let emergencyInput = document.getElementById("emergencyInput")
+  
+      // Reveal emergency elements
+      let emergencySection = [emergencyButton, emergencyMessage, emergencyInput]
+      for (let i = 0; i< 3; i++) {
+        emergencySection[i].classList.remove("hidden1")
+      }
 
   // Activate Emergency Button
 
   emergency.addEventListener("click", function emergencyFund() {
-    let fundPrompt = prompt(
-      "What amount will you add to your emergency funds?"
-    );
 
-    fundPrompt = Number(fundPrompt);
+    let funds = Number(emergencyInput.value);
 
-    let funds = Number(fundPrompt);
-
-    //Clear initial paragraph about emergency funds
-    conclusion.classList.add("hidden1");
-
-    //Remove emergency button
-    emergency.classList.add("hidden1");
-
-    //Reveal the emergency fund table
-    let emergencyTable = document.getElementById("table3");
-    emergencyTable.classList.remove("hidden1");
-
-    //Reveal Start Over Button
-    let startOver = document.getElementById("startOver");
-    startOver.classList.remove("hidden1");
 
     if (funds > savings) {
-      let correction = prompt("Thats too much. Try a smaller amount.");
+      let emergencyMessage = document.getElementById("conclusion")
+      emergencyMessage.innerHTML = "Thats too much. Try a smaller amount.";
 
-      correction = Number(correction);
-
-      savings = savings - correction;
-
-      document.getElementById("needs").innerHTML = `💰${needs}`;
-
-      document.getElementById("savings").innerHTML = `💰${savings}`;
-
-      document.getElementById("wants").innerHTML = `💰${wants}`;
-
-      document.getElementById("funds").innerHTML = `💰${funds}`;
-
-      document.getElementById("person").innerHTML = `${name}'s Final Monthly Budget`;
     } else {
-      savings = savings - fundPrompt;
+
+        // Reveal the emergency fund table
+    let emergencyTable = document.getElementById("table3");
+    emergencyTable.classList.remove("hidden1");
+      savings = savings - funds;
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -188,33 +182,26 @@ buttonBegin.addEventListener("click", function myBudget() {
 
       document.getElementById("funds").innerHTML = `💰${funds}`;
 
-      document.getElementById("person").innerHTML = `${name}'s Final Monthly Budget`;
+      // Reveal final message 
+      let finalMessage = document.getElementById("finalMessage")
+      finalMessage.classList.remove("hidden1")
+      finalMessage.innerHTML = 'Here is your new monthly budget!'
+
+        // Remove emergency set up
+    for (let i = 0; i< 3; i++) {
+      emergencySection[i].classList.add("hidden1")
     }
+  
+      //Reveal Start Over Button
+      let startOver = document.getElementById("startOver");
+      startOver.classList.remove("hidden1");}
+  
+  startOver.addEventListener("click", function refreshPage(){
+    window.location.reload();
+})
+
   });
+})
+})
+})
 
-  startOver.addEventListener("click", function startOver() {
-    person = "Budget";
-    needs = 0;
-    wants = 0;
-    savings = 0;
-    document.getElementById("person").innerHTML = person;
-
-    document.getElementById("needs").innerHTML = `💰${needs}`;
-
-    document.getElementById("savings").innerHTML = `💰${savings}`;
-
-    document.getElementById("wants").innerHTML = `💰${wants}`;
-
-    //Remove emergency table
-    let emergencyTable = document.getElementById("table3");
-    emergencyTable.classList.add("hidden1");
-
-    //Remove Start Over Button
-    let startOver = document.getElementById("startOver");
-    startOver.classList.add("hidden1");
-
-    //Reveal Begin button
-    let buttonBegin = document.getElementById("begin");
-    buttonBegin.classList.remove("hidden1");
-  });
-});
