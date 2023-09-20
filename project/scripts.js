@@ -200,6 +200,7 @@ welcome.classList.add("hidden1")
       finalMessage.classList.remove("hidden1")
       finalMessage.innerHTML = 'Here is your new monthly budget!'
 
+
         // Remove emergency set up
     for (let i = 0; i< 3; i++) {
       emergencySection[i].classList.add("hidden1")

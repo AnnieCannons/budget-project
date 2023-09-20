@@ -8,6 +8,7 @@
 }
 
 body {
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -18,8 +19,10 @@ body {
 }
 
 #fields {
+ width: 50vw;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background-color: black;
   padding: 10px;
   text-align: center;
@@ -47,10 +50,18 @@ input {
   width: 250px;
   border-radius: 50px;
   text-align: center;
+  margin: 5px;
+}
+
+
+
+.inputs, .starting, .monthlySpending, .emergencyField {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 :root {
-  --tableWidth: 420px;
   --headerFontSize: 16px;
   --headerFontColor: #E7EAF1;
   --headerFontWeight: 0;
@@ -72,13 +83,12 @@ input {
 }
 
 table {
+  width: 40vw;
   border-collapse: collapse;
-  margin: 25px 0;
-  width: 100%;
   background: #323232;
-  width: var(--tableWidth);
   text-transform: uppercase;
   border-radius: 50px;
+  margin-bottom: 10px;
 }
 
 td {
@@ -132,4 +142,21 @@ button {
   border: 2px solid #E7EAF1;
   cursor: pointer;
   border-radius: 50px;
+}
+
+@media (max-width: 600px) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+#fields {
+  height: 550px;
+}
+
+  table {
+    margin-top: 15px;
+    width: 50vw;
+  }
 }
