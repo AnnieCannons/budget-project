@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Budget Program</title>
+    <script src="scripts.js" defer></script>
+    <link href="budget.css" rel="stylesheet"/>
 </head>
+
 <body>
-    
+
+    <p id="intro">Lets get started with an example on budgeting!</p>
+
+    <button id="begin">Begin</button>
+    <p id="welcome"></p>
+    <p id="warning"></p>
+
+    <div id="table1" class="hidden1">
+        <table>
+            <thead>
+                <tr>
+                    <th id="person" colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Needs</td>
+                    <td id="needs"></td>
+                </tr>
+                <tr>
+                    <td>Wants</td>
+                    <td id="wants"></td>
+                </tr>
+                <tr>
+                    <td>Savings</td>
+                    <td id="savings"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button id="input" class="hidden1">Input Your Needs</button>
+   
+
+    <p class="conclusion hidden1" id="conclusion">It's important to put money towards your emergency fund. This will come from your savings portion
+    </p>
+
+    <button id="emergency" class="hidden1">Emergency Fund</button>
+
+    <div id="table3" class="hidden1">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Emergency Funds</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amount</td>
+                    <td id="funds"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<p></p>
+
+    <button id="startOver" class="hidden1">Start Over</button>
+
 </body>
+
 </html>

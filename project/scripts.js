@@ -1,36 +1,219 @@
-// Questions
+//BEGIN BUTTON
 
-// 1. How many child nodes does the body element have in this document?
+let buttonBegin = document.getElementById("begin");
 
-// 2. What is the relationship between the div with the class of todo-section and the list element with the text of "Reading"?
+buttonBegin.addEventListener("click", function myBudget() {
+  let personValue = document.getElementById("person");
 
-// 3. What is the relationship between the div with the class of image-gallery and the html element?
+  let person = "";
 
+  personValue.innerHTML = person;
 
-// 4. Uncomment the following code:
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('skgjnskjgn')
-    const addButton = document.getElementById('addButton');
-    const newTaskInput = document.getElementById('newTask');
-    const taskList = document.getElementById('taskList');
+  let needs = 0;
 
-    addButton.addEventListener('click', function () {
-        const taskText = newTaskInput.value;
+  let savings = 0;
 
-        if (taskText !== '') {
-            const taskItem = document.createElement('li');
-            taskItem.textContent = taskText;
+  let wants = 0;
 
-            taskItem.addEventListener('click', function () {
-                taskItem.classList.toggle('completed');
-            });
+  let budget = 0;
 
-            taskList.appendChild(taskItem);
-            newTaskInput.value = '';
-        }
-    });
+  let needsValue = document.getElementById("needs");
+
+  needsValue.innerHTML = `💰${needs}`;
+
+  let savingsValue = document.getElementById("savings");
+
+  savingsValue.innerHTML = `💰${savings}`;
+
+  let wantsValue = document.getElementById("wants");
+
+  wantsValue.innerHTML = `💰${wants}`;
+
+  let namePrompt = prompt("What is your name?");
+
+  document.getElementById("person").innerHTML = `${namePrompt}'s Budget`;
+
+  budget = prompt("What is your monthly salary?");
+
+  budget = Number(budget);
+
+  needs = budget * 0.5;
+
+  savings = budget * 0.2;
+
+  wants = budget * 0.3;
+
+  let welcome = document.getElementById("welcome").innerHTML
+  document.getElementById("welcome").innerHTML = `Hello ${namePrompt}! Here is your budget for this month.`;
+  setTimeout(function() {
+    document.getElementById("welcome").innerHTML = welcome;}, 5000);
+  
+
+  // Reveal Table to display budget
+  let table1 = document.getElementById("table1");
+  table1.classList.remove("hidden1");
+
+  // Remove Intro Statement
+  let intro = document.getElementById("intro");
+  intro.classList.add("hidden1");
+
+  // Remove Begin Button
+  buttonBegin.classList.add("hidden1");
+
+  // Reveal Needs Button
+  let needsButton = document.getElementById("input");
+  needsButton.classList.remove("hidden1");
+
+  needsButton.addEventListener("click", function inputYourNeeds() {
+    let food = prompt("How much do you spend on food monthly?");
+
+    food = Number(food);
+
+    let housing = prompt("How much do you spend on housing monthly?");
+
+    housing = Number(housing);
+
+    let expenses = prompt("How much do you spend on bills and loans monthly?");
+
+    expenses = Number(expenses);
+
+    let healthcare = prompt("How much do you spend on healthcare, monthly?");
+
+    healthcare = Number(healthcare);
+
+    let transportation = prompt(
+      "How much do you spend on transportation monthly?"
+    );
+
+    transportation = Number(transportation);
+
+    let essentials = prompt("How much do you spend on essentials monthly?");
+
+    essentials = Number(essentials);
+
+    needs =
+      needs -
+      (food + housing + expenses + healthcare + transportation + essentials);
+
+    // Remove Needs Button
+    needsButton.classList.add("hidden1");
+
+    // Reveal Emergency Button
+    let emergency = document.getElementById("emergency");
+    emergency.classList.remove("hidden1");
+
+    // Reveal Emergency Statement
+    let conclusion = document.getElementById("conclusion");
+
+    conclusion.classList.remove("hidden1");
+
+    if (needs < 0) {
+      wants = wants + needs;
+        let needsMessage = document.getElementById("warning").innerHTML
+        document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`
+        setTimeout(function() {
+          document.getElementById("warning").innerHTML = needsMessage;}, 5000);
+
+      document.getElementById("needs").innerHTML = `💰${needs}`;
+
+      document.getElementById("savings").innerHTML = `💰${savings}`;
+
+      document.getElementById("wants").innerHTML = `💰${wants}`;
+    } else {
+      let needsMessage = document.getElementById("warning").innerHTML
+      document.getElementById("warning").innerHTML = `You're doing great!`
+      setTimeout(function() {
+        document.getElementById("warning").innerHTML = needsMessage;}, 5000);
+
+      document.getElementById("needs").innerHTML = `💰${needs}`;
+
+      document.getElementById("savings").innerHTML = `💰${savings}`;
+
+      document.getElementById("wants").innerHTML = `💰${wants}`;
+    }
+  });
+
+  // Activate Emergency Button
+
+  emergency.addEventListener("click", function emergencyFund() {
+    let fundPrompt = prompt("What amount will you add to your emergency funds?");
+
+    fundPrompt = Number(fundPrompt);
+
+    let funds = Number(fundPrompt);
+
+    //Clear initial paragraph about emergency funds
+    conclusion.classList.add("hidden1");
+
+    //Remove emergency button
+    emergency.classList.add("hidden1");
+
+    //Reveal the emergency fund table
+    let emergencyTable = document.getElementById("table3");
+    emergencyTable.classList.remove("hidden1");
+
+    //Reveal Start Over Button
+    let startOver = document.getElementById("startOver");
+    startOver.classList.remove("hidden1");
+
+    if (funds > savings) {
+      let correction = prompt("Thats too much. Try a smaller amount.");
+
+      correction = Number(correction);
+
+      savings = savings - correction;
+
+      document.getElementById("needs").innerHTML = `💰${needs}`;
+
+      document.getElementById("savings").innerHTML = `💰${savings}`;
+
+      document.getElementById("wants").innerHTML = `💰${wants}`;
+
+      document.getElementById("funds").innerHTML = `💰${funds}`;
+
+      document.getElementById(
+        "person"
+      ).innerHTML = `${namePrompt}'s Final Monthly Budget`;
+    } else {
+      savings = savings - fundPrompt;
+
+      document.getElementById("needs").innerHTML = `💰${needs}`;
+
+      document.getElementById("savings").innerHTML = `💰${savings}`;
+
+      document.getElementById("wants").innerHTML = `💰${wants}`;
+
+      document.getElementById("funds").innerHTML = `💰${funds}`;
+
+      document.getElementById(
+        "person"
+      ).innerHTML = `${namePrompt}'s Final Monthly Budget`;
+    }
+  });
+
+  startOver.addEventListener("click", function startOver() {
+    person = "Budget";
+    needs = 0;
+    wants = 0;
+    savings = 0;
+
+    //Remove emergency table
+    let emergencyTable = document.getElementById("table3");
+    emergencyTable.classList.add("hidden1");
+
+    //Remove Start Over Button
+    startOver.classList.add("hidden1");
+
+    //Reveal Begin button
+    let buttonBegin = document.getElementById("begin");
+    buttonBegin.classList.add("hidden1");
+
+    document.getElementById("person").innerHTML = person;
+
+    document.getElementById("needs").innerHTML = `💰${needs}`;
+
+    document.getElementById("savings").innerHTML = `💰${savings}`;
+
+    document.getElementById("wants").innerHTML = `💰${wants}`;
+  });
 });
-
-// Connect this file to the HTML file and open the HTML file in the browser? What do you see? What can you learn from the above code?
-
-
