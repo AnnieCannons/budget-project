@@ -15,27 +15,15 @@ buttonBegin.addEventListener("click", function myBudget() {
 
   let wants = 0;
 
-  let budget = 0;
+  let nameInput = document.getElementById("name");
 
-  let needsValue = document.getElementById("needs");
+  let name = nameInput.value
 
-  needsValue.innerHTML = `💰${needs}`;
+  document.getElementById("person").innerHTML = `${name}'s Budget`;
 
-  let savingsValue = document.getElementById("savings");
+  let budgetInput = document.getElementById("salary");
 
-  savingsValue.innerHTML = `💰${savings}`;
-
-  let wantsValue = document.getElementById("wants");
-
-  wantsValue.innerHTML = `💰${wants}`;
-
-  let namePrompt = prompt("What is your name?");
-
-  document.getElementById("person").innerHTML = `${namePrompt}'s Budget`;
-
-  budget = prompt("What is your monthly salary?");
-
-  budget = Number(budget);
+  budget = Number(budgetInput.value);
 
   needs = budget * 0.5;
 
@@ -43,11 +31,19 @@ buttonBegin.addEventListener("click", function myBudget() {
 
   wants = budget * 0.3;
 
-  let welcome = document.getElementById("welcome").innerHTML
-  document.getElementById("welcome").innerHTML = `Hello ${namePrompt}! Here is your budget for this month.`;
-  setTimeout(function() {
-    document.getElementById("welcome").innerHTML = welcome;}, 5000);
-  
+  document.getElementById("needs").innerHTML = `💰${needs}`;
+
+  document.getElementById("savings").innerHTML = `💰${savings}`;
+
+  document.getElementById("wants").innerHTML = `💰${wants}`;
+
+  let welcome = document.getElementById("welcome").innerHTML;
+  document.getElementById(
+    "welcome"
+  ).innerHTML = `Hello ${name}! Here is your budget for this month.`;
+  setTimeout(function () {
+    document.getElementById("welcome").innerHTML = welcome;
+  }, 5000);
 
   // Reveal Table to display budget
   let table1 = document.getElementById("table1");
@@ -59,6 +55,13 @@ buttonBegin.addEventListener("click", function myBudget() {
 
   // Remove Begin Button
   buttonBegin.classList.add("hidden1");
+
+   //hide input values
+  name = document.getElementById("name")
+  name.classList.add("hidden1")
+
+  budgetInput = document.getElementById("salary")
+  budgetInput.classList.add("hidden1")
 
   // Reveal Needs Button
   let needsButton = document.getElementById("input");
@@ -81,9 +84,7 @@ buttonBegin.addEventListener("click", function myBudget() {
 
     healthcare = Number(healthcare);
 
-    let transportation = prompt(
-      "How much do you spend on transportation monthly?"
-    );
+    let transportation = prompt("How much do you spend on transportation monthly?");
 
     transportation = Number(transportation);
 
@@ -91,9 +92,7 @@ buttonBegin.addEventListener("click", function myBudget() {
 
     essentials = Number(essentials);
 
-    needs =
-      needs -
-      (food + housing + expenses + healthcare + transportation + essentials);
+    needs = needs - (food + housing + expenses + healthcare + transportation + essentials);
 
     // Remove Needs Button
     needsButton.classList.add("hidden1");
@@ -109,10 +108,13 @@ buttonBegin.addEventListener("click", function myBudget() {
 
     if (needs < 0) {
       wants = wants + needs;
-        let needsMessage = document.getElementById("warning").innerHTML
-        document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`
-        setTimeout(function() {
-          document.getElementById("warning").innerHTML = needsMessage;}, 5000);
+      let needsMessage = document.getElementById("warning").innerHTML;
+      document.getElementById(
+        "warning"
+      ).innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
+      setTimeout(function () {
+        document.getElementById("warning").innerHTML = needsMessage;
+      }, 5000);
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -120,10 +122,11 @@ buttonBegin.addEventListener("click", function myBudget() {
 
       document.getElementById("wants").innerHTML = `💰${wants}`;
     } else {
-      let needsMessage = document.getElementById("warning").innerHTML
-      document.getElementById("warning").innerHTML = `You're doing great!`
-      setTimeout(function() {
-        document.getElementById("warning").innerHTML = needsMessage;}, 5000);
+      let needsMessage = document.getElementById("warning").innerHTML;
+      document.getElementById("warning").innerHTML = `You're doing great!`;
+      setTimeout(function () {
+        document.getElementById("warning").innerHTML = needsMessage;
+      }, 5000);
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -136,7 +139,9 @@ buttonBegin.addEventListener("click", function myBudget() {
   // Activate Emergency Button
 
   emergency.addEventListener("click", function emergencyFund() {
-    let fundPrompt = prompt("What amount will you add to your emergency funds?");
+    let fundPrompt = prompt(
+      "What amount will you add to your emergency funds?"
+    );
 
     fundPrompt = Number(fundPrompt);
 
@@ -171,9 +176,7 @@ buttonBegin.addEventListener("click", function myBudget() {
 
       document.getElementById("funds").innerHTML = `💰${funds}`;
 
-      document.getElementById(
-        "person"
-      ).innerHTML = `${namePrompt}'s Final Monthly Budget`;
+      document.getElementById("person").innerHTML = `${name}'s Final Monthly Budget`;
     } else {
       savings = savings - fundPrompt;
 
@@ -185,9 +188,7 @@ buttonBegin.addEventListener("click", function myBudget() {
 
       document.getElementById("funds").innerHTML = `💰${funds}`;
 
-      document.getElementById(
-        "person"
-      ).innerHTML = `${namePrompt}'s Final Monthly Budget`;
+      document.getElementById("person").innerHTML = `${name}'s Final Monthly Budget`;
     }
   });
 
@@ -196,18 +197,6 @@ buttonBegin.addEventListener("click", function myBudget() {
     needs = 0;
     wants = 0;
     savings = 0;
-
-    //Remove emergency table
-    let emergencyTable = document.getElementById("table3");
-    emergencyTable.classList.add("hidden1");
-
-    //Remove Start Over Button
-    startOver.classList.add("hidden1");
-
-    //Reveal Begin button
-    let buttonBegin = document.getElementById("begin");
-    buttonBegin.classList.add("hidden1");
-
     document.getElementById("person").innerHTML = person;
 
     document.getElementById("needs").innerHTML = `💰${needs}`;
@@ -215,5 +204,17 @@ buttonBegin.addEventListener("click", function myBudget() {
     document.getElementById("savings").innerHTML = `💰${savings}`;
 
     document.getElementById("wants").innerHTML = `💰${wants}`;
+
+    //Remove emergency table
+    let emergencyTable = document.getElementById("table3");
+    emergencyTable.classList.add("hidden1");
+
+    //Remove Start Over Button
+    let startOver = document.getElementById("startOver");
+    startOver.classList.add("hidden1");
+
+    //Reveal Begin button
+    let buttonBegin = document.getElementById("begin");
+    buttonBegin.classList.remove("hidden1");
   });
 });
