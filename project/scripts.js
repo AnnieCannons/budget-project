@@ -166,7 +166,7 @@ document.getElementById("wants").innerHTML = `💰${wants}`;
     if (funds > savings) {
       let emergencyMessage = document.getElementById("conclusion")
       emergencyMessage.innerHTML = "Thats too much. Try a smaller amount.";
-
+      emergencyInput.value = ''
     } else {
 
         // Reveal the emergency fund table
