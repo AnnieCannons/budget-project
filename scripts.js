@@ -120,7 +120,7 @@ welcome.classList.add("hidden1")
       warning.classList.remove("hidden1")
       needsMessage = document.getElementById("warning").innerHTML
       document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
-      setTimeout(function() {document.getElementById("warning").innerHTML = needsMessage }, 5000)
+      setTimeout(function() {document.getElementById("warning").innerHTML = needsMessage }, 3000)
     
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -135,11 +135,11 @@ welcome.classList.add("hidden1")
     
     } else {
       let needsMessage = document.getElementById("warning")
-      warning.classList.remove("hidden")
+      warning.classList.remove("hidden1")
       needsMessage = document.getElementById("warning").innerHTML
       document.getElementById("warning").innerHTML = `You're doing great!`;
       setTimeout(function() {
-        document.getElementById("warning").innerHTML = needsMessage }, 5000);
+        document.getElementById("warning").innerHTML = needsMessage }, 3000);
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -153,7 +153,7 @@ welcome.classList.add("hidden1")
         }
     }
 
-    document.getElementById("fields").style.height = '60vh'; 
+    document.getElementById("fields").style.height = '80vh'; 
 
       // Set emergency elements
       let emergencyButton = document.getElementById("emergency")
