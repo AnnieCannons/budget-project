@@ -6,109 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Budget Program</title>
     <script src="scripts.js" defer></script>
-    <link href="budget.css" rel="stylesheet"/>
+    <link href="budget.css" rel="stylesheet" />
 </head>
 
 <body>
-<div id="fields">
+    <div id="fields">
 
-<div class="messages">
-    
-    <p id="intro">Lets get started with an example on budgeting!</p>
-</div>
+        <div id="intro" class="messages">
+            <div id=container>
+                Monthly
+                <div id=flip>
+                    <div>
+                        <div>💰needs💰</div>
+                    </div>
+                    <div>
+                        <div>💰savings💰</div>
+                    </div>
+                    <div>
+                        <div>💰wants💰</div>
+                    </div>
+                </div>
+                Budget!
+            </div>
+        </div>
 
-<div class="inputs">
+        <div class="inputs">
 
-<div class="starting">
-    
-    <button id="start">Begin</button>
-    <input type="text" placeholder="Name" id="name" class="hidden1">
-    <input type="text" placeholder="Monthly Salary" id="salary" class="hidden1">
-    <button id="begin" class="hidden1">Submit</button>
- </div>
+            <div class="starting">
 
- <div class="monthlySpending">
-    <p id="welcome" class="hidden1"></p>
-    <p id="monthly" class="hidden1">Please fill in your monthly expenses</p>
-    <input type="text" id="food" placeholder="food" class="hidden1">
-    <p class="food"></p>
-    <input type="text" id="housing" placeholder="housing" class="hidden1">
-    <p class="housing"></p>
-    <input type="text" id="bills" placeholder="bills/loans" class="hidden1">
-    <p class="bills"></p>
-    <input type="text" id="healthcare" placeholder="healthcare" class="hidden1">
-    <p class="healthcare"></p>
-    <input type="text" id="transportation" placeholder="transportation" class="hidden1">
-    <p class="transportation"></p>
-    <input type="text" id="essentials" placeholder="essentials" class="hidden1">
-    <p class="essentials"></p>
-    <button class="hidden1" id="submitNeed">Submit</button>
-   </div>
+                <button id="start">Begin</button>
+                <input type="text" placeholder="Name" id="name" class="hidden1">
+                <input type="text" placeholder="Monthly Salary" id="salary" class="hidden1">
+                <button id="begin" class="hidden1">Submit</button>
+            </div>
 
-   <p id="warning" class="hidden1"></p>
-<div class="emergencyField">
-  
-    <p class="conclusion hidden1" id="conclusion">It's important to put money towards your emergency fund. This will come from your savings portion. Please fill in the amount you would like sent to your emergency fund.
-    </p>
-    <input type="text" class="hidden1" placeholder="emergency fund" id="emergencyInput">
-    <p class="emergencyValue"></p>
-    <button id="emergency" class="hidden1">Submit</button> 
-</div>
-</div>
-</div>
-</div>
+            <div class="monthlySpending">
+                <p id="welcome" class="hidden1"></p>
+                <p id="monthly" class="hidden1">Please fill in your monthly expenses</p>
+                <input type="text" id="food" placeholder="food" class="hidden1">
+                <p class="food"></p>
+                <input type="text" id="housing" placeholder="housing" class="hidden1">
+                <p class="housing"></p>
+                <input type="text" id="bills" placeholder="bills/loans" class="hidden1">
+                <p class="bills"></p>
+                <input type="text" id="healthcare" placeholder="healthcare" class="hidden1">
+                <p class="healthcare"></p>
+                <input type="text" id="transportation" placeholder="transportation" class="hidden1">
+                <p class="transportation"></p>
+                <input type="text" id="essentials" placeholder="essentials" class="hidden1">
+                <p class="essentials"></p>
+                <button class="hidden1" id="submitNeed">Submit</button>
+            </div>
 
+            <p id="warning" class="hidden1"></p>
+            <div class="emergencyField">
 
-
-<div class="budgetTable">
-    <div id="table1" class="hidden1">
-        <table>
-            <thead>
-                <tr>
-                    <th id="person" colspan="2"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Needs</td>
-                    <td id="needs"></td>
-                </tr>
-                <tr>
-                    <td>Wants</td>
-                    <td id="wants"></td>
-                </tr>
-                <tr>
-                    <td>Savings</td>
-                    <td id="savings"></td>
-                </tr>
-            </tbody>
-        </table>
+                <p class="conclusion hidden1" id="conclusion">It's important to put money towards your emergency fund.
+                    This will come from your savings portion. Please fill in the amount you would like sent to your
+                    emergency fund.
+                </p>
+                <input type="text" class="hidden1" placeholder="emergency fund" id="emergencyInput">
+                <p class="emergencyValue"></p>
+                <button id="emergency" class="hidden1">Submit</button>
+            </div>
+        </div>
+    </div>
     </div>
 
-    
 
-    <div id="table3" class="hidden1">
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="2">Emergency Funds</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Amount</td>
-                    <td id="funds"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
-    <div class="reset">
-    <button id="startOver" class="hidden1">Start Over</button>
-    <button id="copy" class="copy hidden1" onclick="copyText()">Copy</button>
+    <div class="budgetTable">
+        <div id="table1" class="hidden1">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="person" colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Needs</td>
+                        <td id="needs"></td>
+                    </tr>
+                    <tr>
+                        <td>Wants</td>
+                        <td id="wants"></td>
+                    </tr>
+                    <tr>
+                        <td>Savings</td>
+                        <td id="savings"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div id="table3" class="hidden1">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Emergency Funds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Amount</td>
+                        <td id="funds"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="reset">
+            <button id="startOver" class="hidden1">Start Over</button>
+            <button id="copy" class="copy hidden1" onclick="copyText()">Copy</button>
+        </div>
     </div>
-</div>
-</div>
+    </div>
 </body>
 
 </html>
