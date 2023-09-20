@@ -52,14 +52,6 @@ document.getElementById("savings").innerHTML = `💰${savings}`;
 
 document.getElementById("wants").innerHTML = `💰${wants}`;
 
-// Welcome message 5 seconds
-let welcome = document.getElementById("welcome")
-welcome.classList.remove("hidden1")
-  welcome = document.getElementById("welcome").innerHTML;
-  document.getElementById("welcome").innerHTML = `Hello ${name}! Here is your budget for this month.`;
-  setTimeout(function() {
-    document.getElementById("welcome").innerHTML = welcome}, 5000);
-
   // Remove Intro Statement
   let intro = document.getElementById("intro");
   intro.classList.add("hidden1");
@@ -91,8 +83,9 @@ welcome.classList.remove("hidden1")
          //Active submit Button
     submitNeeds.addEventListener("click", function submitNeed() {
 
-      let welcome = document.getElementById("welcome")
-welcome.classList.add("hidden1")
+      let monthly = document.getElementById("monthly")
+      monthly.classList.remove("hidden1")
+
 
     let food = Number(foodInput.value)
     document.getElementsByClassName("food").innerHTML = food
@@ -116,11 +109,11 @@ welcome.classList.add("hidden1")
 
     if (needs < 0) {
       wants = wants + needs;
-      let needsMessage = document.getElementById("warning")
+      let warning = document.getElementById("warning2")
       warning.classList.remove("hidden1")
-      needsMessage = document.getElementById("warning").innerHTML
-      document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
-      setTimeout(function() {document.getElementById("warning").innerHTML = needsMessage }, 3000)
+      needsMessage = document.getElementById("warning2").innerHTML
+      document.getElementById("warning2").innerHTML = `You are 💰${needs} over budget. The overage will be reduced from your wants fund.`;
+      setTimeout(function() {document.getElementById("warning2").innerHTML = needsMessage }, 6000)
     
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
@@ -134,12 +127,12 @@ welcome.classList.add("hidden1")
         }
     
     } else {
-      let needsMessage = document.getElementById("warning")
+      let warning = document.getElementById("warning")
       warning.classList.remove("hidden1")
       needsMessage = document.getElementById("warning").innerHTML
       document.getElementById("warning").innerHTML = `You're doing great!`;
       setTimeout(function() {
-        document.getElementById("warning").innerHTML = needsMessage }, 3000);
+        document.getElementById("warning").innerHTML = needsMessage }, 7000);
 
       document.getElementById("needs").innerHTML = `💰${needs}`;
 
