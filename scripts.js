@@ -204,7 +204,19 @@ document.getElementById("fields").style.height = '0px';
     for (let i = 0; i< 3; i++) {
       emergencySection[i].classList.add("hidden1")
     }
-  
+
+    let copy = document.getElementById("copy");
+    copy.classList.remove("hidden1")
+    copy.addEventListener("click", function copyText() {
+      /* Copy text into clipboard */
+      navigator.clipboard.writeText
+          (`Monthly Budget:\n
+          Needs: 💰${needs}\n
+          Savings: 💰${savings}\n 
+          Wants: 💰${wants}\n
+          Emergency Fund: 💰${funds}\n`);
+  })
+
       //Reveal Start Over Button
       let startOver = document.getElementById("startOver");
       startOver.classList.remove("hidden1");}
