@@ -20,9 +20,13 @@ buttonStart.addEventListener("click", function startBudget() {
   let wants = 0;
 
 
-  // Remove begin button
+// Remove begin button
 let buttonStart = document.getElementById("start")
 buttonStart.classList.add("hidden1")
+
+// Remove intro
+let intro = document.getElementById("intro")
+intro.classList.add("hidden1")
 
 // Activate submit button 
 
@@ -113,7 +117,7 @@ welcome.classList.add("hidden1")
     if (needs < 0) {
       wants = wants + needs;
       let needsMessage = document.getElementById("warning")
-      warning.classList.remove("hidden")
+      warning.classList.remove("hidden1")
       needsMessage = document.getElementById("warning").innerHTML
       document.getElementById("warning").innerHTML = `You are 💰${needs} over budget. You will have to reduce the amount from your wants.`;
       setTimeout(function() {document.getElementById("warning").innerHTML = needsMessage }, 5000)
@@ -149,6 +153,7 @@ welcome.classList.add("hidden1")
         }
     }
 
+    document.getElementById("fields").style.height = '60vh'; 
 
       // Set emergency elements
       let emergencyButton = document.getElementById("emergency")

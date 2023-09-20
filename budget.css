@@ -28,7 +28,7 @@ body {
   justify-content: center;
   font-family: 'Montserrat',sans-serif;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
 }
 
 p {
@@ -37,6 +37,7 @@ p {
   line-height: 25px;
   margin-bottom: 10px;
   font-size: 12px;
+  width: 50vw;
 }
 
 input {
@@ -53,14 +54,17 @@ input {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 50vw;
+  width: auto;
+  align-items: center;
 }
+
+
 
 .reset {
   display: flex;
-  width: 100vw;
   justify-content: center;
   align-items: center;
+  width: auto;
 }
 
 button {
@@ -72,7 +76,8 @@ button {
   border: 1px solid #e7eaf1c0;
   cursor: pointer;
   border-radius: 50px;
-  width: 50vw;
+  margin: 10px;
+  width: 150px;
 }
 
 
@@ -81,8 +86,8 @@ button {
   --headerFontColor: #E7EAF1;
   --headerFontWeight: 0;
   --headerFontBGColor: hsl(0 0% 0% / 0.5);
-  --headerTextAlign: left;
-  --bodyTextAlign: left;
+  --headerTextAlign: center;
+  --bodyTextAlign: center;
   --headerBorderColor: #E7EAF1;
   --headerBCVar: 0px;
   --bodyFontSize: 14px;
@@ -98,12 +103,12 @@ button {
 }
 
 table {
-  width: 100vw;
+  width: 90vw;
   border-collapse: collapse;
   background: #323232;
   text-transform: uppercase;
   border-radius: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 td {
@@ -122,6 +127,7 @@ th,
 td
 {
   padding: 20px;
+  
 }
 
 
@@ -148,4 +154,11 @@ thead {
   font-family: system-ui;
 }
 
-
+.budgetTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
