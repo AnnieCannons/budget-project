@@ -56,10 +56,6 @@ welcome.classList.remove("hidden1")
   setTimeout(function() {
     document.getElementById("welcome").innerHTML = welcome}, 5000);
 
-  // Reveal Table to display budget
-  let table1 = document.getElementById("table1");
-  table1.classList.remove("hidden1");
-
   // Remove Intro Statement
   let intro = document.getElementById("intro");
   intro.classList.add("hidden1");
@@ -196,10 +192,13 @@ welcome.classList.add("hidden1")
       document.getElementById("funds").innerHTML = `💰${funds}`;
 
       // Reveal final message 
-      let finalMessage = document.getElementById("finalMessage")
-      finalMessage.classList.remove("hidden1")
-      finalMessage.innerHTML = 'Here is your new monthly budget!'
+    
 
+document.getElementById("fields").style.height = '0px'; 
+
+  // Reveal Table to display budget
+  let table1 = document.getElementById("table1");
+  table1.classList.remove("hidden1");
 
         // Remove emergency set up
     for (let i = 0; i< 3; i++) {

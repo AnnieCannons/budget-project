@@ -8,18 +8,16 @@
 }
 
 body {
-  margin: 0;
+  margin: 5px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   color: #E7EAF1;
   background-color: black;
+  width: 100vw;
+  height: 100vh;
 }
 
 #fields {
- width: 50vw;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -28,13 +26,13 @@ body {
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 650px;
   font-family: 'Montserrat',sans-serif;
+  width: 100vw;
+  height: 80vh;
 }
 
 p {
   text-transform: uppercase;
-  width: 250px;
   letter-spacing: 1px;
   line-height: 25px;
   margin-bottom: 10px;
@@ -42,24 +40,40 @@ p {
 }
 
 input {
-  font-family: system-ui;
-  background-color: black;
-  color: white;
+  color: #E7EAF1;
+  background-color: rgba(255, 254, 254, 0.046);
   padding: 5px;
   text-transform: uppercase;
-  width: 250px;
   border-radius: 50px;
   text-align: center;
   margin: 5px;
 }
 
-
-
 .inputs, .starting, .monthlySpending, .emergencyField {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 50vw;
 }
+
+.reset {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+  text-transform: uppercase;
+  border: 1px solid #e7eaf1c0;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
 
 :root {
   --headerFontSize: 16px;
@@ -83,7 +97,7 @@ input {
 }
 
 table {
-  width: 40vw;
+  width: 100vw;
   border-collapse: collapse;
   background: #323232;
   text-transform: uppercase;
@@ -133,30 +147,4 @@ thead {
   font-family: system-ui;
 }
 
-button {
-  background-color: black;
-  color: white;
-  font-size: 14px;
-  padding: 5px;
-  text-transform: uppercase;
-  border: 2px solid #E7EAF1;
-  cursor: pointer;
-  border-radius: 50px;
-}
 
-@media (max-width: 600px) {
-
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-#fields {
-  height: 550px;
-}
-
-  table {
-    margin-top: 15px;
-    width: 50vw;
-  }
-}
