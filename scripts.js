@@ -131,7 +131,7 @@ let wantsInitial = Number(budgetInput.value) * 0.3;
         for (let i = 0; i< 8; i++) {
           monthlySection[i].classList.add("hidden1")
         }
-    }
+      }
 
     document.getElementById("fields").style.height = '80vh'; 
 
@@ -149,7 +149,6 @@ let wantsInitial = Number(budgetInput.value) * 0.3;
       emergencyMessage.innerHTML = `Setting money aside into an emergency fund is one of the smartest things you can do for your future self. Right now you can invest up to 💰${savings} based on what your savings fund amounted to for this months income value.`
 
   // Activate Emergency Button
-
   emergency.addEventListener("click", function emergencyFund() {
 
     let needsMessage = document.getElementById("warning")
@@ -177,10 +176,12 @@ let wantsInitial = Number(budgetInput.value) * 0.3;
 
       document.getElementById("funds").innerHTML = `💰${funds}`;
 
-      // Reveal final message 
-    
 
+//Minimize fields element
 document.getElementById("fields").style.height = '0px'; 
+// Remove field element
+let fields = document.getElementById("fields")
+fields.classList.add("hidden1")
 
   // Reveal Table to display budget
   let table1 = document.getElementById("table1");
@@ -191,85 +192,78 @@ document.getElementById("fields").style.height = '0px';
       emergencySection[i].classList.add("hidden1")
     }
 
-    // Breakdown of results and lets user copy the results to their clipboard
 
-  
 
-    let copy = document.getElementById("copy");
-    copy.classList.remove("hidden1")
-    copy.addEventListener("click", function copyText() {
+    // Reveal breakdown list button
+    let breakdown = document.getElementById("breakdownList");
+    breakdown.classList.remove("hidden1")
+
+// Activate breakdown List
+    breakdown.addEventListener("click", function revealBreakdown() {
 
       // Reveal breakdown box
       let breakdown = document.getElementById("breakdown")
       breakdown.classList.remove("hidden1")
 
-      //Remove breakdown button
-      copy.classList.add("hidden1")
+      document.getElementById("breakdown").innerHTML = `Monthly Budget:<br>
+      Monthly Income: 💰${budget}<br>
+      Monthly Expenses = 💰${monthlyExpenses}<br><br>
+      Needs Fund is 50% of your monthly budget and is reserved for monthly expenses.<br>
+      Original value: 💰${needsInitial}<br>
+      Final value after monthly expenses are subtracted: 💰${needs}<br><br>
+      Savings Fund is 20% of your monthly income and is reserved for future investments. This is also where any emergency funds will be subtracted from.<br>
+      Original value: 💰${savingsInitial}<br>
+      Final value after subtracting emergency fund value: 💰${savings}<br><br> 
+      Wants Fund is 30% of your monthly income and is reserved for whatever use you would like! If your monthly expenses are higher than what is in your needs fund, the remaining amount will be subtracted from here.<br>
+      Original value: 💰${wantsInitial}<br>
+      Final value after subtracting any possible overage: 💰${wants}<br><br>
+      Emergency Fund is subtracted from savings and is reserved for...emergencies! It is suggested to save up to three times you're monthly income to prepare yourself for any possible situations that could arise.<br>
+      This months investment: 💰${funds}<br><br>
+      This information has been copied to your clipboard for you to take with you!<br>`
 
-      /* Copy text into clipboard */
+      //Remove breakdown button
+      breakdownList.classList.add("hidden1")
+
+      // Reveal clipboard button
+
+    let clipboard = document.getElementById("clipboard")
+    clipboard.classList.remove("hidden1")
+
+          //Reveal Start Over Button
+          let startOver = document.getElementById("startOver");
+          startOver.classList.remove("hidden1");
+
+                    // Activate Start Over
+      startOver.addEventListener("click", function refreshPage(){
+        window.location.reload();
+    })
+
+
+      // Activate clipboard
+      clipboard.addEventListener("click", function copyBreakdown() {
+      
+        /* Copy text into clipboard */
       navigator.clipboard.writeText
           (`Monthly Budget:\n
             Monthly Income: 💰${budget}\n
             Monthly Expenses = 💰${monthlyExpenses}\n\n
-            Needs Fund is 50% of your monthly budget and is\n
-            reserved for monthly expenses.\n
+            Needs Fund is 50% of your monthly budget and is reserved for monthly expenses.\n
             Original value: 💰${needsInitial}\n
             Final value after monthly expenses are subtracted: 💰${needs}\n\n
-            Savings Fund is 20% of your monthly income and is\n
-            reserved for future investments.\n
-            This is also where any emergency funds will be subtracted from.\n
+            Savings Fund is 20% of your monthly income and is reserved for future investments This is also where any emergency funds will be subtracted from.\n
             Original value: 💰${savingsInitial}\n
             Final value after subtracting emergency fund value: 💰${savings}\n\n 
-            Wants Fund is 30% of your monthly income and is \n
-            reserved for whatever use you would like!\n
-            If your monthly expenses are higher than what is in your\n
-            needs fund, this is where the remaining amount will be subtracted from.\n
+            Wants Fund is 30% of your monthly income and is reserved for whatever use you would like! If your monthly expenses are higher than what is in your needs fund, this is where the remaining amount will be subtracted from.\n
             Original value: 💰${wantsInitial}\n
             Final value after subtracting any possible overage: 💰${wants}\n\n
-            Emergency Fund is subtracted from savings and is reserved for...emergencies!\n
-            It is suggested to save up to three times you're monthly income to\n
-            prepare yourself for any possible situations that could arise.\n
-            Final value: 💰${funds}`);})
+            Emergency Fund is subtracted from savings and is reserved for...emergencies! It is suggested to save up to three times you're monthly income to prepare yourself for any possible situations that could arise.\n
+            This months investment: 💰${funds}`); 
 
-          document.getElementById("breakdown").innerHTML = `Monthly Budget:<br>
-          Monthly Income: 💰${budget}<br>
-          Monthly Expenses = 💰${monthlyExpenses}<br><br>
-          Needs Fund is 50% of your monthly budget and is<br>
-          reserved for monthly expenses.<br>
-          Original value: 💰${needsInitial}<br>
-          Final value after monthly expenses are subtracted: 💰${needs}<br><br>
-          Savings Fund is 20% of your monthly income and is<br>
-          reserved for future investments.<br>
-          This is also where any emergency funds will be subtracted from.<br>
-          Original value: 💰${savingsInitial}<br>
-          Final value after subtracting emergency fund value: 💰${savings}<br><br> 
-          Wants Fund is 30% of your monthly income and is reserved for<br>
-          whatever use you would like! If your monthly expenses are higher<br>
-          than what is in your needs fund, the remaining amount will be subtracted from here.<br>
-          Original value: 💰${wantsInitial}<br>
-          Final value after subtracting any possible overage: 💰${wants}<br><br>
-          Emergency Fund is subtracted from savings and is reserved for...emergencies!<br>
-          It is suggested to save up to three times you're monthly income to<br>
-          prepare yourself for any possible situations that could arise.<br>
-          Final value: 💰${funds}<br><br>
-          This information has been copied to your clipboard for you to take with you!<br>`
-
-
-  // Remove field element
-let fields = document.getElementById("fields")
-fields.classList.add("hidden1")
-
-      //Reveal Start Over Button
-      let startOver = document.getElementById("startOver");
-      startOver.classList.remove("hidden1");}
-  
-      // Activate Start Over
-  startOver.addEventListener("click", function refreshPage(){
-    window.location.reload();
+      });
+    });
+  };
 })
-
-  });
-})
-})
+    })
+  })
 })
 
