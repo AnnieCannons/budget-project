@@ -184,11 +184,21 @@ document.getElementById("fields").style.height = '0px';
       emergencySection[i].classList.add("hidden1")
     }
 
-    // Let user to copy the results to their clipboard
+    // Breakdown of results and lets et user to copy the results to their clipboard
+
+   
 
     let copy = document.getElementById("copy");
     copy.classList.remove("hidden1")
     copy.addEventListener("click", function copyText() {
+
+      // Reveal breakdown box
+      let breakdown = document.getElementById("breakdown")
+      breakdown.classList.remove("hidden1")
+
+      //Remove breakdown button
+      copy.classList.add("hidden1")
+
       /* Copy text into clipboard */
       navigator.clipboard.writeText
           (`Monthly Budget:\n

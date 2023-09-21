@@ -68,7 +68,6 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
- 
 }
 
 .reset p {
@@ -80,8 +79,7 @@ input {
   border-top-left-radius: 50px;
   padding: 10px;
   width: 60vw;
-
-
+  font-family: 'Dosis', sans-serif;
 }
 
 button {
@@ -138,7 +136,7 @@ tbody tr {
   min-height: 100px;
   text-align: var(--bodyTextAlign);
   border: none;
-  
+  font-family: 'Dosis', sans-serif;
 }
 
 th,
@@ -147,8 +145,6 @@ td
   padding: 20px;
   
 }
-
-
 
 tbody tr:nth-child(even) {
   color: var(--evenRowsColor);
@@ -169,7 +165,7 @@ thead {
   color: var(--headerFontColor) !important;
   background-color: var(--headerFontBGColor);
   border: var(--headerBCVar) solid var(--headerBorderColor);
-  font-family: system-ui;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .budgetTable {
@@ -250,7 +246,9 @@ button:active {
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dosis:wght@300&display=swap');
 
 @media (min-width: 700px) {
 
