@@ -192,7 +192,7 @@ fields.classList.add("hidden1")
       emergencySection[i].classList.add("hidden1")
     }
 
-
+    document.getElementById("budgetTable").style.height = '100vh';
 
     // Reveal breakdown list button
     let breakdown = document.getElementById("breakdownList");
@@ -200,6 +200,8 @@ fields.classList.add("hidden1")
 
 // Activate breakdown List
     breakdown.addEventListener("click", function revealBreakdown() {
+
+      document.getElementById("budgetTable").style.height = 'auto';
 
       // Reveal breakdown box
       let breakdown = document.getElementById("breakdown")
@@ -218,8 +220,7 @@ fields.classList.add("hidden1")
       Original value: 💰${wantsInitial}<br>
       Final value after subtracting any possible overage: 💰${wants}<br><br>
       Emergency Fund is subtracted from savings and is reserved for...emergencies! It is suggested to save up to three times you're monthly income to prepare yourself for any possible situations that could arise.<br>
-      This months investment: 💰${funds}<br><br>
-      This information has been copied to your clipboard for you to take with you!<br>`
+      This months investment: 💰${funds}<br>`
 
       //Remove breakdown button
       breakdownList.classList.add("hidden1")
