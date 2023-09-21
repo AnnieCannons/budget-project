@@ -28,15 +28,18 @@ buttonStart.classList.add("hidden1")
 let intro = document.getElementById("intro")
 intro.classList.add("hidden1")
 
-// Activate submit button 
+// Activate needs button 
 
 buttonBegin.addEventListener("click", function myBudget() {
 
 let name = nameInput.value
 
-person = `${name}'s Monthly Budget`;
+person = `👤${name}'s Monthly Budget`;
+document.getElementById("person").innerHTML = person
   
 budget = Number(budgetInput.value);
+
+document.getElementById("income").innerHTML = `💰${budget}`;
 
 needs = budget * 0.5;
 
@@ -44,17 +47,6 @@ savings = budget * 0.2;
 
 wants = budget * 0.3;
 
-document.getElementById("person").innerHTML = person
-
-document.getElementById("needs").innerHTML = `💰${needs}`;
-
-document.getElementById("savings").innerHTML = `💰${savings}`;
-
-document.getElementById("wants").innerHTML = `💰${wants}`;
-
-  // Remove Intro Statement
-  let intro = document.getElementById("intro");
-  intro.classList.add("hidden1");
 
   // Remove beginning set up 
   for (let i = 0; i< 3; i++) {
@@ -77,10 +69,8 @@ document.getElementById("wants").innerHTML = `💰${wants}`;
     for (let i = 0; i< 8; i++) {
       monthlySection[i].classList.remove("hidden1")
     }
-  
-    document.querySelector("body").style.justifyContent = 'flex-start';
 
-         //Active submit Button
+         //Active needs Button
     submitNeeds.addEventListener("click", function submitNeed() {
 
       let monthly = document.getElementById("monthly")
@@ -107,6 +97,9 @@ document.getElementById("wants").innerHTML = `💰${wants}`;
 
     needs = needs - (food + housing + expenses + healthcare + transportation + essentials);
 
+    let monthlyExpenses = needs - (food + housing + expenses + healthcare + transportation + essentials);
+    document.getElementById("monthlyExpenses").innerHTML = `💰${monthlyExpenses}`;
+
     if (needs < 0) {
       wants = wants + needs;
       let warning = document.getElementById("warning2")
@@ -114,12 +107,6 @@ document.getElementById("wants").innerHTML = `💰${wants}`;
       needsMessage = document.getElementById("warning2").innerHTML
       document.getElementById("warning2").innerHTML = `You are 💰${needs} over budget. The overage will be reduced from your wants fund.`;
       setTimeout(function() {document.getElementById("warning2").innerHTML = needsMessage }, 6000)
-    
-      document.getElementById("needs").innerHTML = `💰${needs}`;
-
-      document.getElementById("savings").innerHTML = `💰${savings}`;
-
-      document.getElementById("wants").innerHTML = `💰${wants}`;
 
         //Remove needs set up 
         for (let i = 0; i< 8; i++) {
@@ -133,12 +120,6 @@ document.getElementById("wants").innerHTML = `💰${wants}`;
       document.getElementById("warning").innerHTML = `You're doing great!`;
       setTimeout(function() {
         document.getElementById("warning").innerHTML = needsMessage }, 7000);
-
-      document.getElementById("needs").innerHTML = `💰${needs}`;
-
-      document.getElementById("savings").innerHTML = `💰${savings}`;
-
-      document.getElementById("wants").innerHTML = `💰${wants}`;
 
         //Remove needs set up 
         for (let i = 0; i< 8; i++) {
@@ -203,16 +184,29 @@ document.getElementById("fields").style.height = '0px';
       emergencySection[i].classList.add("hidden1")
     }
 
+    // Let user to copy the results to their clipboard
+
     let copy = document.getElementById("copy");
     copy.classList.remove("hidden1")
     copy.addEventListener("click", function copyText() {
       /* Copy text into clipboard */
       navigator.clipboard.writeText
           (`Monthly Budget:\n
-          Needs: 💰${needs}\n
-          Savings: 💰${savings}\n 
-          Wants: 💰${wants}\n
-          Emergency Fund: 💰${funds}\n`);
+          Monthly Income: 💰${budget}\n
+          Monthly Expenses = 💰${monthlyExpenses}\n
+          Needs (50% of income minus monthly expenses): 💰${needs}\n
+          Savings (20% of income minus emergency fund value): 💰${savings}\n 
+          Wants (30% of income minus any overage from monthly expenses): 💰${wants}\n
+          Emergency Fund (subtracted from savings): 💰${funds}\n`);
+
+          document.getElementById("breakdown").innerHTML = `Monthly Budget:<br>
+          Monthly Income: 💰${budget}<br>
+          Monthly Expenses = 💰${monthlyExpenses}<br>
+          Needs (50% of income minus monthly expenses): 💰${needs}<br>
+          Savings (20% of income minus emergency fund value): 💰${savings}<br> 
+          Wants (30% of income minus any overage from monthly expenses): 💰${wants}<br>
+          Emergency Fund (subtracted from savings): 💰${funds}<br>
+          This information has been copied to your clipboard for you to take with you!`
   })
 
 

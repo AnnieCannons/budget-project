@@ -1,10 +1,14 @@
 * {
   box-sizing: border-box;
+  margin: 0;
   
 }
 
+
 .hidden1 {
   display: none;
+  height: 0px;
+  width: 0px;
 }
 
 body {
@@ -48,21 +52,36 @@ input {
   border-radius: 50px;
   text-align: center;
   margin: 5px;
+  width: 250px;
 }
 
-.inputs, .starting, .monthlySpending, .emergencyField {
+.inputs {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: auto;
   align-items: center;
+  justify-content: center;
 }
 
 .reset {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto;
+ 
+}
+
+.reset p {
+  margin: 10px;
+  height: auto;
+  text-align: center;
+  background-color: rgba(96, 96, 96, 0.714);
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  padding: 10px;
+  width: 60vw;
+
+
 }
 
 button {
@@ -101,12 +120,13 @@ button {
 }
 
 table {
-  width: 90vw;
+  width: 60vw;
   border-collapse: collapse;
   background: #323232;
   text-transform: uppercase;
   border-radius: 50px;
   margin-bottom: 15px;
+  
 }
 
 td {
@@ -158,7 +178,6 @@ thead {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
   margin: 0;
 }
 
@@ -233,7 +252,7 @@ button:active {
 
 
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
 
 
   #monthly, #warning {
@@ -259,5 +278,17 @@ button:active {
   @keyframes animated-cursor{
     from{border-right-color: rgba(0,255,0,.75);}
     to{border-right-color: transparent;}
+  }
+}
+
+@media (max-width: 600px) {
+  
+  table {
+    width: 90vw;
+  }
+
+  .reset p {
+    width: 90vw;
+    padding: 20px;
   }
 }

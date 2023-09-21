@@ -13,7 +13,7 @@
     <div id="fields">
 
         <div id="intro" class="messages">
-            <div id=container>
+            <div id=container >
                 Monthly
                 <div id=flip>
                     <div>
@@ -32,15 +32,13 @@
 
         <div class="inputs">
 
-            <div class="starting">
-
                 <button id="start">Begin</button>
                 <input type="text" placeholder="Name" id="name" class="hidden1">
                 <input type="text" placeholder="Monthly Salary" id="salary" class="hidden1">
                 <button id="begin" class="hidden1">Submit</button>
-            </div>
+            
 
-            <div class="monthlySpending">
+            
                 <p id="welcome" class="hidden1"></p>
                 <p id="monthly" class="hidden1">Please fill in your monthly expenses💰</p>
                 <input type="text" id="food" placeholder="food" class="hidden1">
@@ -56,11 +54,11 @@
                 <input type="text" id="essentials" placeholder="essentials" class="hidden1">
                 <p class="essentials"></p>
                 <button class="hidden1" id="submitNeed">Submit</button>
-            </div>
+        
 
             <p id="warning" class="hidden1"></p>
             <p id="warning2" class="hidden1"></p>
-            <div class="emergencyField">
+        
 
                 <p class="conclusion hidden1" id="conclusion">It's important to put money towards your emergency fund.
                     This will come from your savings portion. Please fill in the amount you would like sent to your
@@ -69,14 +67,13 @@
                 <input type="text" class="hidden1" placeholder="emergency fund" id="emergencyInput">
                 <p class="emergencyValue"></p>
                 <button id="emergency" class="hidden1">Submit</button>
-            </div>
-        </div>
     </div>
     </div>
 
 
 
-    <div class="budgetTable">
+
+    <div class="budgetTable hidden">
         <div id="table1" class="hidden1">
             <table>
                 <thead>
@@ -86,15 +83,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Needs</td>
+                        <td>Monthly Income</td>
+                        <td id="income"></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Expenses</td>
+                        <td id="monthlyExpenses"></td>
+                    </tr>
+                    <tr>
+                        <td>Remaining Needs</td>
                         <td id="needs"></td>
                     </tr>
                     <tr>
-                        <td>Wants</td>
+                        <td>Remaining Wants</td>
                         <td id="wants"></td>
                     </tr>
                     <tr>
-                        <td>Savings</td>
+                        <td>Remaining Savings</td>
                         <td id="savings"></td>
                     </tr>
                 </tbody>
@@ -121,10 +126,11 @@
 
         <div class="reset">
             <button id="startOver" class="hidden1">Start Over</button>
-            <button id="copy" class="copy hidden1" onclick="copyText()">Copy</button>
+            <button id="copy" class="copy hidden1" onclick="copyText()">Breakdown Calculations</button>
+            <p id="breakdown"></p>
         </div>
     </div>
-    </div>
+    
 </body>
 
 </html>
