@@ -8,7 +8,6 @@
 }
 
 body {
-  margin: 5px;
   display: flex;
   flex-wrap: wrap;
   color: #E7EAF1;
@@ -160,6 +159,7 @@ thead {
   align-items: center;
   width: 100vw;
   height: 100vh;
+  margin: 0;
 }
 
 #copy {
@@ -251,7 +251,7 @@ button:active {
   
   @keyframes animated-text{
     from{width: 0;}
-    to{width: 40vw;}
+    to{width: 60vw;}
   }
   
   /* cursor animations */

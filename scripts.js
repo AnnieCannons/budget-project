@@ -215,10 +215,16 @@ document.getElementById("fields").style.height = '0px';
           Emergency Fund: 💰${funds}\n`);
   })
 
+
+  // Remove field element
+let fields = document.getElementById("fields")
+fields.classList.add("hidden1")
+
       //Reveal Start Over Button
       let startOver = document.getElementById("startOver");
       startOver.classList.remove("hidden1");}
   
+      // Activate Start Over
   startOver.addEventListener("click", function refreshPage(){
     window.location.reload();
 })
