@@ -43,9 +43,15 @@ document.getElementById("income").innerHTML = `💰${budget}`;
 
 needs = budget * 0.5;
 
+let needsInitial = Number(budgetInput.value) * 0.5;
+
 savings = budget * 0.2;
 
+let savingsInitial = Number(budgetInput.value) * 0.2;
+
 wants = budget * 0.3;
+
+let wantsInitial = Number(budgetInput.value) * 0.3;
 
 
   // Remove beginning set up 
@@ -97,7 +103,7 @@ wants = budget * 0.3;
 
     needs = needs - (food + housing + expenses + healthcare + transportation + essentials);
 
-    let monthlyExpenses = needs - (food + housing + expenses + healthcare + transportation + essentials);
+    let monthlyExpenses = (food + housing + expenses + healthcare + transportation + essentials);
     document.getElementById("monthlyExpenses").innerHTML = `💰${monthlyExpenses}`;
 
     if (needs < 0) {
@@ -140,6 +146,7 @@ wants = budget * 0.3;
         emergencySection[i].classList.remove("hidden1")
       }
 
+      emergencyMessage.innerHTML = `Setting money aside into an emergency fund is one of the smartest things you can do for your future self. Right now you can invest up to 💰${savings} based on what your savings fund amounted to for this months income value.`
 
   // Activate Emergency Button
 
@@ -184,9 +191,9 @@ document.getElementById("fields").style.height = '0px';
       emergencySection[i].classList.add("hidden1")
     }
 
-    // Breakdown of results and lets et user to copy the results to their clipboard
+    // Breakdown of results and lets user copy the results to their clipboard
 
-   
+  
 
     let copy = document.getElementById("copy");
     copy.classList.remove("hidden1")
@@ -202,22 +209,50 @@ document.getElementById("fields").style.height = '0px';
       /* Copy text into clipboard */
       navigator.clipboard.writeText
           (`Monthly Budget:\n
-          Monthly Income: 💰${budget}\n
-          Monthly Expenses = 💰${monthlyExpenses}\n
-          Needs (50% of income minus monthly expenses): 💰${needs}\n
-          Savings (20% of income minus emergency fund value): 💰${savings}\n 
-          Wants (30% of income minus any overage from monthly expenses): 💰${wants}\n
-          Emergency Fund (subtracted from savings): 💰${funds}\n`);
+            Monthly Income: 💰${budget}\n
+            Monthly Expenses = 💰${monthlyExpenses}\n\n
+            Needs Fund is 50% of your monthly budget and is\n
+            reserved for monthly expenses.\n
+            Original value: 💰${needsInitial}\n
+            Final value after monthly expenses are subtracted: 💰${needs}\n\n
+            Savings Fund is 20% of your monthly income and is\n
+            reserved for future investments.\n
+            This is also where any emergency funds will be subtracted from.\n
+            Original value: 💰${savingsInitial}\n
+            Final value after subtracting emergency fund value: 💰${savings}\n\n 
+            Wants Fund is 30% of your monthly income and is \n
+            reserved for whatever use you would like!\n
+            If your monthly expenses are higher than what is in your\n
+            needs fund, this is where the remaining amount will be subtracted from.\n
+            Original value: 💰${wantsInitial}\n
+            Final value after subtracting any possible overage: 💰${wants}\n\n
+            Emergency Fund is subtracted from savings and is reserved for...emergencies!\n
+            It is suggested to save up to three times you're monthly income to\n
+            prepare yourself for any possible situations that could arise.\n
+            Final value: 💰${funds}`);})
 
           document.getElementById("breakdown").innerHTML = `Monthly Budget:<br>
           Monthly Income: 💰${budget}<br>
-          Monthly Expenses = 💰${monthlyExpenses}<br>
-          Needs (50% of income minus monthly expenses): 💰${needs}<br>
-          Savings (20% of income minus emergency fund value): 💰${savings}<br> 
-          Wants (30% of income minus any overage from monthly expenses): 💰${wants}<br>
-          Emergency Fund (subtracted from savings): 💰${funds}<br>
-          This information has been copied to your clipboard for you to take with you!`
-  })
+          Monthly Expenses = 💰${monthlyExpenses}<br><br>
+          Needs Fund is 50% of your monthly budget and is<br>
+          reserved for monthly expenses.<br>
+          Original value: 💰${needsInitial}<br>
+          Final value after monthly expenses are subtracted: 💰${needs}<br><br>
+          Savings Fund is 20% of your monthly income and is<br>
+          reserved for future investments.<br>
+          This is also where any emergency funds will be subtracted from.<br>
+          Original value: 💰${savingsInitial}<br>
+          Final value after subtracting emergency fund value: 💰${savings}<br><br> 
+          Wants Fund is 30% of your monthly income and is reserved for<br>
+          whatever use you would like! If your monthly expenses are higher<br>
+          than what is in your needs fund, the remaining amount will be subtracted from here.<br>
+          Original value: 💰${wantsInitial}<br>
+          Final value after subtracting any possible overage: 💰${wants}<br><br>
+          Emergency Fund is subtracted from savings and is reserved for...emergencies!<br>
+          It is suggested to save up to three times you're monthly income to<br>
+          prepare yourself for any possible situations that could arise.<br>
+          Final value: 💰${funds}<br><br>
+          This information has been copied to your clipboard for you to take with you!<br>`
 
 
   // Remove field element
